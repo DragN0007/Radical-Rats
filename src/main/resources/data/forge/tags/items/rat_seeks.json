@@ -1,0 +1,29 @@
+{
+  "replace": false,
+  "values": [
+    "minecraft:egg",
+    "minecraft:feather",
+    "minecraft:leather",
+    "minecraft:rabbit_foot",
+    "minecraft:rabbit_hide",
+    "minecraft:bone",
+    "minecraft:bone_meal",
+
+    {
+      "id": "#forge:raw_meats",
+      "required": false
+    },
+    {
+      "id": "#forge:raw_fishes",
+      "required": false
+    },
+    {
+      "id": "#forge:eggs",
+      "required": false
+    },
+    {
+      "id": "#forge:egg",
+      "required": false
+    }
+  ]
+}

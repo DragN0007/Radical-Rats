@@ -1,0 +1,10 @@
+{
+  "itemGroup.radrats": "Radical Rats",
+  "item.radrats.rat_spawn_egg": "Rat Spawn Egg",
+  "entity.radrats.rat": "Rat",
+
+
+
+  "tooltip.radrats.wandering.tooltip": "Your Rat is Wandering",
+  "tooltip.radrats.following.tooltip": "Your Rat is Following"
+}
