@@ -20,7 +20,7 @@ import software.bernie.geckolib.GeckoLib;
 @Mod(RadicalRats.MODID)
 public class RadicalRats
 {
-    public static final String MODID = "fferrets";
+    public static final String MODID = "radrats";
 
     public RadicalRats()
     {

@@ -101,9 +101,9 @@ dependencies {
     compileOnly fg.deobf("vazkii.patchouli:Patchouli:1.20.1-84.1-FORGE:api")
     runtimeOnly fg.deobf("vazkii.patchouli:Patchouli:1.20.1-84.1-FORGE")
 
-//    implementation fg.deobf("curse.maven:jade-324717:5876199")
-//    implementation fg.deobf("curse.maven:xaeros-minimap-263420:6012833")
-    implementation fg.deobf("curse.maven:mob-capturing-tool-630272:4675932")
+    implementation fg.deobf("curse.maven:jade-324717:5876199")
+    implementation fg.deobf("curse.maven:xaeros-minimap-263420:6012833")
+    implementation fg.deobf("curse.maven:jei-238222:6075247")
 }
 
 tasks.named('processResources', ProcessResources).configure {

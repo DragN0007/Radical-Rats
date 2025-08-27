@@ -18,7 +18,7 @@ public class RRItemGroup {
                 () -> CreativeModeTab.builder().icon(() -> new ItemStack(RRItems.RAD_RATS.get())).title(Component.translatable("itemGroup.radrats"))
                         .displayItems((displayParameters, output) -> {
 
-
+                    output.accept(RRItems.RAT_SPAWN_EGG.get());
 
                     }).build());
 

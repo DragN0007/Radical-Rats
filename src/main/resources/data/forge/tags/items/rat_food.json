@@ -1,19 +1,8 @@
 {
   "replace": false,
   "values": [
-    "minecraft:egg",
-    "minecraft:rabbit",
-    "minecraft:chicken",
-    "dragnlivestock:chicken_thigh",
-    "dragnlivestock:rabbit_thigh",
-    "dragnlivestock:frog",
-
     {
-      "id": "#forge:eggs",
-      "required": false
-    },
-    {
-      "id": "#forge:egg",
+      "id": "#forge:cheese",
       "required": false
     }
   ]
