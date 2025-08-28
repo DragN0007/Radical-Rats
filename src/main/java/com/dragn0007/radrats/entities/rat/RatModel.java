@@ -31,8 +31,8 @@ public class RatModel extends DefaultedEntityGeoModel<Rat> {
 
         if (left_ear != null && right_ear != null) {
             if (animatable.getBreed() == 1) {
-                left_ear.setRotZ(-10);
-                right_ear.setRotZ(10);
+                left_ear.setRotZ(45);
+                right_ear.setRotZ(-45);
             } else {
                 left_ear.setRotZ(0);
                 right_ear.setRotZ(0);

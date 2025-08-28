@@ -149,29 +149,6 @@ public class Rat extends TamableAnimal implements GeoEntity {
 		return this.geoCache;
 	}
 
-	public boolean hurt(DamageSource damageSource, float amount) {
-		if (damageSource.getEntity() instanceof Player player) {
-
-			if(!this.level().isClientSide && this.isTame() && !this.isOrderedToSit() && !this.isInSittingPose() && !this.wasToldToWander())
-			{
-				if (this.isOwnedBy(player) && player.isShiftKeyDown()) {
-					this.setToldToWander(true);
-					player.displayClientMessage(Component.translatable("tooltip.radrats.wandering.tooltip").withStyle(ChatFormatting.GOLD), true);
-				}
-				return false;
-			}
-
-			if (!this.level().isClientSide && this.isTame() && !this.isOrderedToSit() && !this.isInSittingPose() && this.wasToldToWander()) {
-				if (this.isOwnedBy(player) && player.isShiftKeyDown()) {
-					this.setToldToWander(false);
-					player.displayClientMessage(Component.translatable("tooltip.radrats.following.tooltip").withStyle(ChatFormatting.GOLD), true);
-				}
-				return false;
-			}
-		}
-		return super.hurt(damageSource, amount);
-	}
-
 	public InteractionResult mobInteract(Player player, InteractionHand hand) {
 		ItemStack itemstack = player.getItemInHand(hand);
 		Item item = itemstack.getItem();
@@ -187,6 +164,18 @@ public class Rat extends TamableAnimal implements GeoEntity {
 			player.playSound(SoundEvents.BEEHIVE_EXIT, 1.0F, 1.0F);
 			ItemStack itemstack1 = ItemUtils.createFilledResult(itemstack, player, LOItems.MALE_GENDER_TEST_STRIP.get().getDefaultInstance());
 			player.setItemInHand(hand, itemstack1);
+			return InteractionResult.SUCCESS;
+		}
+
+		if (player.isShiftKeyDown() && !this.isFood(itemstack) && !this.isInSittingPose() && !this.wasToldToWander() && this.isOwnedBy(player)) {
+			this.setToldToWander(true);
+			player.displayClientMessage(Component.translatable("tooltip.radrats.wandering.tooltip").withStyle(ChatFormatting.GOLD), true);
+			return InteractionResult.SUCCESS;
+		}
+
+		if (player.isShiftKeyDown() && !this.isFood(itemstack) && !this.isInSittingPose() && this.wasToldToWander() && this.isOwnedBy(player)) {
+			this.setToldToWander(false);
+			player.displayClientMessage(Component.translatable("tooltip.radrats.following.tooltip").withStyle(ChatFormatting.GOLD), true);
 			return InteractionResult.SUCCESS;
 		}
 
@@ -242,14 +231,15 @@ public class Rat extends TamableAnimal implements GeoEntity {
 				if (!this.isFood(itemstack)) {
 					InteractionResult interactionresult = super.mobInteract(player, hand);
 					if ((!interactionresult.consumesAction() || this.isBaby()) && this.isOwnedBy(player)) {
-						this.setOrderedToSit(!this.isOrderedToSit());
-						this.jumping = false;
-						this.navigation.stop();
-						this.setTarget((LivingEntity)null);
-						return InteractionResult.SUCCESS;
+						if (!player.isShiftKeyDown()) {
+							this.setOrderedToSit(!this.isOrderedToSit());
+							this.jumping = false;
+							this.navigation.stop();
+							this.setTarget((LivingEntity) null);
+							return InteractionResult.SUCCESS;
+						}
+						return interactionresult;
 					}
-
-					return interactionresult;
 				}
 
 			} else if (this.isFood(itemstack)) {
@@ -380,14 +370,15 @@ public class Rat extends TamableAnimal implements GeoEntity {
 		}
 		Random random = new Random();
 		setGender(random.nextInt(Gender.values().length));
-		setBreed(random.nextInt(Breed.values().length));
 
 		if (LivestockOverhaulCommonConfig.SPAWN_BY_BREED.get()) {
 			this.setColor();
 			this.setMarking();
+			this.setBreedChance();
 		} else {
 			this.setVariant(random.nextInt(RatModel.Variant.values().length));
 			this.setOverlayVariant(random.nextInt(RatMarkingLayer.Overlay.values().length));
+			this.setBreed(random.nextInt(Breed.values().length));
 		}
 
 		return super.finalizeSpawn(serverLevelAccessor, instance, spawnType, data, tag);
@@ -414,6 +405,14 @@ public class Rat extends TamableAnimal implements GeoEntity {
 			this.setOverlayVariant(random.nextInt(RatMarkingLayer.Overlay.values().length)); //random pattern
 		} else if (random.nextDouble() > 0.03) { //97% chance
 			this.setOverlayVariant(0); //no pattern
+		}
+	}
+
+	public void setBreedChance() {
+		if (random.nextDouble() <= 0.02) { //2% chance
+			this.setBreed(1); //dumbo
+		} else if (random.nextDouble() > 0.02) { //98% chance
+			this.setBreed(0); //common
 		}
 	}
 

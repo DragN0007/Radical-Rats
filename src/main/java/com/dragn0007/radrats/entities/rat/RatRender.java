@@ -24,12 +24,12 @@ public class RatRender extends GeoEntityRenderer<Rat> {
         }
 
         if (entity.getBreed() == 1) {
-            model.getBone("left_ear").ifPresent(b -> b.setScaleX(1.4F));
-            model.getBone("left_ear").ifPresent(b -> b.setScaleY(1.4F));
-            model.getBone("left_ear").ifPresent(b -> b.setScaleZ(1.4F));
-            model.getBone("right_ear").ifPresent(b -> b.setScaleX(1.4F));
-            model.getBone("right_ear").ifPresent(b -> b.setScaleY(1.4F));
-            model.getBone("right_ear").ifPresent(b -> b.setScaleZ(1.4F));
+            model.getBone("left_ear").ifPresent(b -> b.setScaleX(1.2F));
+            model.getBone("left_ear").ifPresent(b -> b.setScaleY(1.2F));
+            model.getBone("left_ear").ifPresent(b -> b.setScaleZ(1.2F));
+            model.getBone("right_ear").ifPresent(b -> b.setScaleX(1.2F));
+            model.getBone("right_ear").ifPresent(b -> b.setScaleY(1.2F));
+            model.getBone("right_ear").ifPresent(b -> b.setScaleZ(1.2F));
         } else {
             model.getBone("left_ear").ifPresent(b -> b.setScaleX(1.0F));
             model.getBone("left_ear").ifPresent(b -> b.setScaleY(1.0F));

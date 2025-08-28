@@ -11,7 +11,6 @@ public class RRTags {
     public static class Items {
 
         public static final TagKey<Item> RAT_FOOD = forgeTag("rat_food");
-        public static final TagKey<Item> RAT_SEEKS = forgeTag("rat_seeks");
 
         private static TagKey<Item> tag (String name) {
             return ItemTags.create(new ResourceLocation(RadicalRats.MODID, name));
