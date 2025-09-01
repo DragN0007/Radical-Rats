@@ -1,13 +1,11 @@
 package com.dragn0007.radrats.entities.rat;
 
-import com.dragn0007.dragnlivestock.entities.rabbit.ORabbitModel;
-import com.dragn0007.dragnlivestock.entities.sheep.OSheepMarkingLayer;
-import com.dragn0007.dragnlivestock.entities.sheep.OSheepModel;
 import com.dragn0007.dragnlivestock.items.LOItems;
 import com.dragn0007.dragnlivestock.util.LOTags;
 import com.dragn0007.dragnlivestock.util.LivestockOverhaulCommonConfig;
 import com.dragn0007.radrats.entities.ai.RatFollowOwnerGoal;
 import com.dragn0007.radrats.entities.util.EntityTypes;
+import com.dragn0007.radrats.items.RatSweaterItem;
 import com.dragn0007.radrats.util.RRTags;
 import net.minecraft.ChatFormatting;
 import net.minecraft.core.BlockPos;
@@ -34,6 +32,7 @@ import net.minecraft.world.entity.player.Player;
 import net.minecraft.world.item.Item;
 import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.item.ItemUtils;
+import net.minecraft.world.item.Items;
 import net.minecraft.world.item.crafting.Ingredient;
 import net.minecraft.world.level.Level;
 import net.minecraft.world.level.ServerLevelAccessor;
@@ -167,16 +166,33 @@ public class Rat extends TamableAnimal implements GeoEntity {
 			return InteractionResult.SUCCESS;
 		}
 
-		if (player.isShiftKeyDown() && !this.isFood(itemstack) && !this.isInSittingPose() && !this.wasToldToWander() && this.isOwnedBy(player)) {
-			this.setToldToWander(true);
-			player.displayClientMessage(Component.translatable("tooltip.radrats.wandering.tooltip").withStyle(ChatFormatting.GOLD), true);
-			return InteractionResult.SUCCESS;
-		}
+		if (this.isOwnedBy(player)) {
+			if (player.isShiftKeyDown() && !this.isFood(itemstack) && !this.isInSittingPose() && !this.wasToldToWander()) {
+				this.setToldToWander(true);
+				player.displayClientMessage(Component.translatable("tooltip.radrats.wandering.tooltip").withStyle(ChatFormatting.GOLD), true);
+				return InteractionResult.SUCCESS;
+			}
 
-		if (player.isShiftKeyDown() && !this.isFood(itemstack) && !this.isInSittingPose() && this.wasToldToWander() && this.isOwnedBy(player)) {
-			this.setToldToWander(false);
-			player.displayClientMessage(Component.translatable("tooltip.radrats.following.tooltip").withStyle(ChatFormatting.GOLD), true);
-			return InteractionResult.SUCCESS;
+			if (player.isShiftKeyDown() && !this.isFood(itemstack) && !this.isInSittingPose() && this.wasToldToWander()) {
+				this.setToldToWander(false);
+				player.displayClientMessage(Component.translatable("tooltip.radrats.following.tooltip").withStyle(ChatFormatting.GOLD), true);
+				return InteractionResult.SUCCESS;
+			}
+
+			if (itemstack.getItem() instanceof RatSweaterItem && this.getSweater().isEmpty()) {
+				this.setSweater(itemstack);
+				this.playSound(SoundEvents.WOOL_PLACE, 0.5f, 1f);
+				return InteractionResult.sidedSuccess(this.level().isClientSide);
+			}
+
+			if (itemstack.is(Items.SHEARS) && !this.getSweater().isEmpty()) {
+				if (!this.getSweater().isEmpty() && this.getSweater().getItem() instanceof RatSweaterItem sweaterItem) {
+					this.spawnAtLocation(sweaterItem);
+					this.setSweater(Items.AIR.getDefaultInstance());
+				}
+				this.playSound(SoundEvents.SHEEP_SHEAR, 0.5f, 1f);
+				return InteractionResult.sidedSuccess(this.level().isClientSide);
+			}
 		}
 
 		if (this.isTame()) {
@@ -294,6 +310,15 @@ public class Rat extends TamableAnimal implements GeoEntity {
 		this.playSound(SoundEvents.CHICKEN_STEP, 0.15F, 1.0F);
 	}
 
+	public ItemStack getSweater() {
+		return this.getItemBySlot(EquipmentSlot.CHEST);
+	}
+
+	public void setSweater(ItemStack itemStack) {
+		this.setItemSlot(EquipmentSlot.CHEST, itemStack);
+		this.setDropChance(EquipmentSlot.CHEST, 0f);
+	}
+
 	// Generates the base texture
 	public static final EntityDataAccessor<Integer> VARIANT = SynchedEntityData.defineId(Rat.class, EntityDataSerializers.INT);
 	public static final EntityDataAccessor<Integer> OVERLAY = SynchedEntityData.defineId(Rat.class, EntityDataSerializers.INT);
@@ -322,7 +347,6 @@ public class Rat extends TamableAnimal implements GeoEntity {
 	public void setOverlayVariant(int overlayVariant) {
 		this.entityData.set(OVERLAY, overlayVariant);
 	}
-
 	public void setBreed(int breed) {
 		this.entityData.set(BREED, breed);
 	}
@@ -350,6 +374,11 @@ public class Rat extends TamableAnimal implements GeoEntity {
 		if (tag.contains("Wandering")) {
 			this.setToldToWander(tag.getBoolean("Wandering"));
 		}
+
+		if(tag.contains("SweaterItem")) {
+			ItemStack sweater = ItemStack.of(tag.getCompound("SweaterItem"));
+			this.setSweater(sweater);
+		}
 	}
 
 	@Override
@@ -360,6 +389,9 @@ public class Rat extends TamableAnimal implements GeoEntity {
 		tag.putInt("Gender", this.getGender());
 		tag.putInt("Breed", this.getBreed());
 		tag.putBoolean("Wandering", this.getToldToWander());
+		if(!this.getSweater().isEmpty()) {
+			tag.put("SweaterItem", this.getSweater().save(new CompoundTag()));
+		}
 	}
 
 	@Override
@@ -386,15 +418,15 @@ public class Rat extends TamableAnimal implements GeoEntity {
 
 	public void setColor() {
 		if (random.nextDouble() <= 0.05) { //5% chance
-			int[] variants = {4, 5, 8}; //cream, lilac, silver
+			int[] variants = {4, 5, 6, 9}; //cream, gold, lilac, silver
 			int randomIndex = new Random().nextInt(variants.length);
 			this.setVariant(variants[randomIndex]);
 		} else if (random.nextDouble() > 0.05 && random.nextDouble() < 0.20) { //15% chance
-			int[] variants = {1, 7, 9, 10}; //blue, red, tan, white
+			int[] variants = {1, 8, 10, 11}; //blue, red, tan, white
 			int randomIndex = new Random().nextInt(variants.length);
 			this.setVariant(variants[randomIndex]);
 		} else if (random.nextDouble() > 0.20) { //80% chance
-			int[] variants = {0, 2, 3, 6}; //black, brown, chocolate, mahogany
+			int[] variants = {0, 2, 3, 7}; //black, brown, chocolate, mahogany
 			int randomIndex = new Random().nextInt(variants.length);
 			this.setVariant(variants[randomIndex]);
 		}
@@ -464,6 +496,7 @@ public class Rat extends TamableAnimal implements GeoEntity {
 		}
 		return false;
 	}
+
 	@Override
 	public AgeableMob getBreedOffspring(ServerLevel serverLevel, AgeableMob ageableMob) {
 		Rat baby = (Rat) ageableMob;
@@ -501,13 +534,10 @@ public class Rat extends TamableAnimal implements GeoEntity {
 				breed = this.random.nextInt(Breed.values().length);
 			}
 
-			int gender;
-			gender = this.random.nextInt(Gender.values().length);
-
 			baby.setVariant(variant);
 			baby.setOverlayVariant(overlay);
-			baby.setGender(gender);
 			baby.setBreed(breed);
+			baby.setGender(random.nextInt(Gender.values().length));
 		}
 
 		return baby;

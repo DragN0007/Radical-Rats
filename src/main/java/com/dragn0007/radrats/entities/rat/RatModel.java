@@ -46,12 +46,14 @@ public class RatModel extends DefaultedEntityGeoModel<Rat> {
         BROWN(new ResourceLocation(RadicalRats.MODID, "textures/rat/brown.png")),
         CHOCOLATE(new ResourceLocation(RadicalRats.MODID, "textures/rat/chocolate.png")),
         CREAM(new ResourceLocation(RadicalRats.MODID, "textures/rat/cream.png")),
+        GOLD(new ResourceLocation(RadicalRats.MODID, "textures/rat/gold.png")),
         LILAC(new ResourceLocation(RadicalRats.MODID, "textures/rat/lilac.png")),
         MAHOGANY(new ResourceLocation(RadicalRats.MODID, "textures/rat/mahogany.png")),
         RED(new ResourceLocation(RadicalRats.MODID, "textures/rat/red.png")),
         SILVER(new ResourceLocation(RadicalRats.MODID, "textures/rat/silver.png")),
         TAN(new ResourceLocation(RadicalRats.MODID, "textures/rat/tan.png")),
-        WHITE(new ResourceLocation(RadicalRats.MODID, "textures/rat/white.png"));
+        WHITE(new ResourceLocation(RadicalRats.MODID, "textures/rat/white.png")),
+        HAIRLESS(new ResourceLocation(RadicalRats.MODID, "textures/rat/hairless.png"));
 
         public final ResourceLocation resourceLocation;
         Variant(ResourceLocation resourceLocation) {

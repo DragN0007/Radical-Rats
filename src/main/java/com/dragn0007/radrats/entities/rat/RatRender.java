@@ -12,6 +12,7 @@ public class RatRender extends GeoEntityRenderer<Rat> {
     public RatRender(EntityRendererProvider.Context renderManager) {
         super(renderManager, new RatModel());
         this.addRenderLayer(new RatMarkingLayer(this));
+        this.addRenderLayer(new RatDecorLayer(this));
     }
 
     @Override

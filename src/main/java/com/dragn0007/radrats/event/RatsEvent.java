@@ -6,7 +6,6 @@ import com.dragn0007.radrats.blocks.pixel_placement.util.PixelPlacerEntityRender
 import com.dragn0007.radrats.entities.rat.Rat;
 import com.dragn0007.radrats.entities.rat.RatRender;
 import com.dragn0007.radrats.entities.util.EntityTypes;
-import net.minecraft.client.gui.screens.MenuScreens;
 import net.minecraft.client.renderer.entity.EntityRenderers;
 import net.minecraftforge.client.event.EntityRenderersEvent;
 import net.minecraftforge.event.entity.EntityAttributeCreationEvent;

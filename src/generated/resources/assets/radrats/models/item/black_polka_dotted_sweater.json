@@ -1,0 +1,6 @@
+{
+  "parent": "minecraft:item/generated",
+  "textures": {
+    "layer0": "radrats:item/black_polka_dotted_sweater"
+  }
+}

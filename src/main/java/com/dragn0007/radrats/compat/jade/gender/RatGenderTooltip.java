@@ -1,7 +1,6 @@
 package com.dragn0007.radrats.compat.jade.gender;
 
 import com.dragn0007.dragnlivestock.LivestockOverhaul;
-import com.dragn0007.dragnlivestock.entities.sheep.OSheep;
 import com.dragn0007.radrats.entities.rat.Rat;
 import net.minecraft.network.chat.Component;
 import net.minecraft.resources.ResourceLocation;

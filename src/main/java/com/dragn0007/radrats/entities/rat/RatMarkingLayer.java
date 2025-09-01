@@ -19,6 +19,10 @@ public class RatMarkingLayer extends GeoRenderLayer<Rat> {
     @Override
     public void render(PoseStack poseStack, Rat animatable, BakedGeoModel bakedModel, RenderType renderType, MultiBufferSource bufferSource, VertexConsumer buffer, float partialTick, int packedLight, int packedOverlay) {
 
+        if (animatable.getVariant() == 12) {
+            return;
+        }
+
         RenderType renderMarkingType = RenderType.entityCutout(animatable.getOverlayLocation());
         poseStack.pushPose();
         poseStack.scale(1.0f, 1.0f, 1.0f);
