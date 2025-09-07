@@ -1,0 +1,19 @@
+{
+  "variants": {
+    "facing=east": {
+      "model": "radrats:block/grey_hammock",
+      "y": 90
+    },
+    "facing=north": {
+      "model": "radrats:block/grey_hammock"
+    },
+    "facing=south": {
+      "model": "radrats:block/grey_hammock",
+      "y": 180
+    },
+    "facing=west": {
+      "model": "radrats:block/grey_hammock",
+      "y": 270
+    }
+  }
+}

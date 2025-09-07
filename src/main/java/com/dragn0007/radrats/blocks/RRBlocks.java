@@ -1,6 +1,7 @@
 package com.dragn0007.radrats.blocks;
 
 import com.dragn0007.radrats.RadicalRats;
+import com.dragn0007.radrats.blocks.custom.StraightHammock;
 import com.dragn0007.radrats.blocks.custom.WaterBottle;
 import com.dragn0007.radrats.blocks.custom.WireDoor;
 import com.dragn0007.radrats.blocks.custom.WireWall;
@@ -33,6 +34,22 @@ public class RRBlocks {
     public static final RegistryObject<WireWall> WIRE_WALL = registerBlock("wire_wall", WireWall::new);
     public static final RegistryObject<WireDoor> WIRE_DOOR = registerBlock("wire_door",
             () -> new WireDoor(SoundEvents.CHAIN_PLACE, SoundEvents.CHAIN_BREAK));
+    public static final RegistryObject<StraightHammock> BLACK_HAMMOCK = registerBlock("black_hammock", StraightHammock::new);
+    public static final RegistryObject<StraightHammock> BLUE_HAMMOCK = registerBlock("blue_hammock", StraightHammock::new);
+    public static final RegistryObject<StraightHammock> BROWN_HAMMOCK = registerBlock("brown_hammock", StraightHammock::new);
+    public static final RegistryObject<StraightHammock> CYAN_HAMMOCK = registerBlock("cyan_hammock", StraightHammock::new);
+    public static final RegistryObject<StraightHammock> GREEN_HAMMOCK = registerBlock("green_hammock", StraightHammock::new);
+    public static final RegistryObject<StraightHammock> GREY_HAMMOCK = registerBlock("grey_hammock", StraightHammock::new);
+    public static final RegistryObject<StraightHammock> LIGHT_BLUE_HAMMOCK = registerBlock("light_blue_hammock", StraightHammock::new);
+    public static final RegistryObject<StraightHammock> LIGHT_GREY_HAMMOCK = registerBlock("light_grey_hammock", StraightHammock::new);
+    public static final RegistryObject<StraightHammock> LIME_HAMMOCK = registerBlock("lime_hammock", StraightHammock::new);
+    public static final RegistryObject<StraightHammock> MAGENTA_HAMMOCK = registerBlock("magenta_hammock", StraightHammock::new);
+    public static final RegistryObject<StraightHammock> ORANGE_HAMMOCK = registerBlock("orange_hammock", StraightHammock::new);
+    public static final RegistryObject<StraightHammock> PINK_HAMMOCK = registerBlock("pink_hammock", StraightHammock::new);
+    public static final RegistryObject<StraightHammock> PURPLE_HAMMOCK = registerBlock("purple_hammock", StraightHammock::new);
+    public static final RegistryObject<StraightHammock> RED_HAMMOCK = registerBlock("red_hammock", StraightHammock::new);
+    public static final RegistryObject<StraightHammock> WHITE_HAMMOCK = registerBlock("white_hammock", StraightHammock::new);
+    public static final RegistryObject<StraightHammock> YELLOW_HAMMOCK = registerBlock("yellow_hammock", StraightHammock::new);
 
     public static final RegistryObject<PixelPlacerContainer> PIXEL_PLACER_CONTAINER = BLOCKS.register("pixel_placer_container", PixelPlacerContainer::new);
     public static final RegistryObject<BlockEntityType<PixelPlacerEntity>> PIXEL_PLACER_ENTITY = BLOCK_ENTITIES.register("pixel_placer_container",

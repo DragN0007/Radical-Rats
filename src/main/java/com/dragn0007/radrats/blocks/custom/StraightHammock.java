@@ -24,19 +24,19 @@ public class StraightHammock extends DecorRotator implements SimpleWaterloggedBl
     }
 
     public static final VoxelShape NORTH = Stream.of(
-            Block.box(3, 6.499999999999998, 0, 13, 7.499999999999998, 16)
+            Block.box(4, 7, 0, 12, 8, 16)
     ).reduce((v1, v2) -> Shapes.join(v1, v2,BooleanOp.OR)).get();
 
     public static final VoxelShape EAST = Stream.of(
-            Block.box(0, 6.499999999999998, 3, 16, 7.499999999999998, 13)
+            Block.box(0, 7, 4, 16, 8, 12)
     ).reduce((v1, v2) -> Shapes.join(v1, v2,BooleanOp.OR)).get();
 
     public static final VoxelShape SOUTH = Stream.of(
-            Block.box(3, 6.499999999999998, 0, 13, 7.499999999999998, 16)
+            Block.box(4, 7, 0, 12, 8, 16)
     ).reduce((v1, v2) -> Shapes.join(v1, v2,BooleanOp.OR)).get();
 
     public static final VoxelShape WEST = Stream.of(
-            Block.box(0, 6.499999999999998, 3, 16, 7.499999999999998, 13)
+            Block.box(0, 7, 4, 16, 8, 12)
     ).reduce((v1, v2) -> Shapes.join(v1, v2,BooleanOp.OR)).get();
 
     @Override

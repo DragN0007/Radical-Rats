@@ -20,6 +20,21 @@ public class RRBlockLootTables extends BlockLootSubProvider {
         dropSelf(RRBlocks.WIRE_DOOR.get());
         dropSelf(RRBlocks.WATER_BOTTLE.get());
 
+        dropSelf(RRBlocks.BLACK_HAMMOCK.get());
+        dropSelf(RRBlocks.BLUE_HAMMOCK.get());
+        dropSelf(RRBlocks.BROWN_HAMMOCK.get());
+        dropSelf(RRBlocks.CYAN_HAMMOCK.get());
+        dropSelf(RRBlocks.GREEN_HAMMOCK.get());
+        dropSelf(RRBlocks.LIGHT_BLUE_HAMMOCK.get());
+        dropSelf(RRBlocks.LIGHT_GREY_HAMMOCK.get());
+        dropSelf(RRBlocks.LIME_HAMMOCK.get());
+        dropSelf(RRBlocks.MAGENTA_HAMMOCK.get());
+        dropSelf(RRBlocks.ORANGE_HAMMOCK.get());
+        dropSelf(RRBlocks.PINK_HAMMOCK.get());
+        dropSelf(RRBlocks.PURPLE_HAMMOCK.get());
+        dropSelf(RRBlocks.RED_HAMMOCK.get());
+        dropSelf(RRBlocks.WHITE_HAMMOCK.get());
+        dropSelf(RRBlocks.YELLOW_HAMMOCK.get());
     }
 
     @Override

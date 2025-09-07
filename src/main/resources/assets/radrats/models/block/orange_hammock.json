@@ -1,0 +1,6 @@
+{
+	"parent": "radrats:block/parent/hammock",
+	"textures": {
+		"texture": "radrats:block/orange_hammock"
+	}
+}

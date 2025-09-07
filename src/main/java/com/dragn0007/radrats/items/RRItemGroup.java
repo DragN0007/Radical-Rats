@@ -24,6 +24,21 @@ public class RRItemGroup {
                             output.accept(RRBlocks.WIRE_WALL.get());
                             output.accept(RRBlocks.WIRE_DOOR.get());
                             output.accept(RRBlocks.WATER_BOTTLE.get());
+                            output.accept(RRBlocks.BLACK_HAMMOCK.get());
+                            output.accept(RRBlocks.BLUE_HAMMOCK.get());
+                            output.accept(RRBlocks.BROWN_HAMMOCK.get());
+                            output.accept(RRBlocks.CYAN_HAMMOCK.get());
+                            output.accept(RRBlocks.GREEN_HAMMOCK.get());
+                            output.accept(RRBlocks.LIGHT_BLUE_HAMMOCK.get());
+                            output.accept(RRBlocks.LIGHT_GREY_HAMMOCK.get());
+                            output.accept(RRBlocks.LIME_HAMMOCK.get());
+                            output.accept(RRBlocks.MAGENTA_HAMMOCK.get());
+                            output.accept(RRBlocks.ORANGE_HAMMOCK.get());
+                            output.accept(RRBlocks.PINK_HAMMOCK.get());
+                            output.accept(RRBlocks.PURPLE_HAMMOCK.get());
+                            output.accept(RRBlocks.RED_HAMMOCK.get());
+                            output.accept(RRBlocks.WHITE_HAMMOCK.get());
+                            output.accept(RRBlocks.YELLOW_HAMMOCK.get());
 
                             output.accept(RRItems.BLACK_SWEATER.get());
                             output.accept(RRItems.BLUE_SWEATER.get());
