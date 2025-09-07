@@ -1,0 +1,6 @@
+{
+  "parent": "minecraft:item/generated",
+  "textures": {
+    "layer0": "radrats:item/light_grey_checkered_sweater"
+  }
+}

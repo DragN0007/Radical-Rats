@@ -1,6 +1,7 @@
 package com.dragn0007.radrats.items;
 
 import com.dragn0007.radrats.RadicalRats;
+import com.dragn0007.radrats.blocks.RRBlocks;
 import net.minecraft.core.registries.Registries;
 import net.minecraft.network.chat.Component;
 import net.minecraft.world.item.CreativeModeTab;
@@ -19,6 +20,10 @@ public class RRItemGroup {
                         .displayItems((displayParameters, output) -> {
 
                             output.accept(RRItems.RAT_SPAWN_EGG.get());
+
+                            output.accept(RRBlocks.WIRE_WALL.get());
+                            output.accept(RRBlocks.WIRE_DOOR.get());
+                            output.accept(RRBlocks.WATER_BOTTLE.get());
 
                             output.accept(RRItems.BLACK_SWEATER.get());
                             output.accept(RRItems.BLUE_SWEATER.get());

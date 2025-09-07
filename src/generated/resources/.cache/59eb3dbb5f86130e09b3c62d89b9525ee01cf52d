@@ -1,1 +1,4 @@
-// 1.20.1	2025-08-31T23:09:54.3774882	Loot Tables
+// 1.20.1	2025-09-06T21:50:51.67093	Loot Tables
+f763b75f64c4c5fc07d68b3497ab3596b1bb7f37 data/radrats/loot_tables/blocks/water_bottle.json
+9e96b703835bd74e8dc786f8cd55496ccff0e401 data/radrats/loot_tables/blocks/wire_door.json
+2104a059605d773ae456181b672f04a231b96b10 data/radrats/loot_tables/blocks/wire_wall.json

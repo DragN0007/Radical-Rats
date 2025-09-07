@@ -1,14 +1,20 @@
 package com.dragn0007.radrats.blocks;
 
 import com.dragn0007.radrats.RadicalRats;
+import com.dragn0007.radrats.blocks.custom.WaterBottle;
+import com.dragn0007.radrats.blocks.custom.WireDoor;
+import com.dragn0007.radrats.blocks.custom.WireWall;
 import com.dragn0007.radrats.blocks.pixel_placement.util.PixelPlacer;
 import com.dragn0007.radrats.blocks.pixel_placement.util.PixelPlacerContainer;
 import com.dragn0007.radrats.blocks.pixel_placement.util.PixelPlacerEntity;
 import com.dragn0007.radrats.blocks.pixel_placement.util.PixelPlacerItem;
 import com.dragn0007.radrats.items.RRItems;
+import net.minecraft.sounds.SoundEvents;
 import net.minecraft.world.item.BlockItem;
 import net.minecraft.world.item.Item;
 import net.minecraft.world.level.block.Block;
+import net.minecraft.world.level.block.Blocks;
+import net.minecraft.world.level.block.SoundType;
 import net.minecraft.world.level.block.entity.BlockEntityType;
 import net.minecraftforge.eventbus.api.IEventBus;
 import net.minecraftforge.registries.DeferredRegister;
@@ -23,7 +29,10 @@ public class RRBlocks {
     public static final DeferredRegister<BlockEntityType<?>> BLOCK_ENTITIES
             = DeferredRegister.create(ForgeRegistries.BLOCK_ENTITY_TYPES, RadicalRats.MODID);
 
-
+    public static final RegistryObject<WaterBottle> WATER_BOTTLE = registerPixelPlacer("water_bottle", WaterBottle::new);
+    public static final RegistryObject<WireWall> WIRE_WALL = registerBlock("wire_wall", WireWall::new);
+    public static final RegistryObject<WireDoor> WIRE_DOOR = registerBlock("wire_door",
+            () -> new WireDoor(SoundEvents.CHAIN_PLACE, SoundEvents.CHAIN_BREAK));
 
     public static final RegistryObject<PixelPlacerContainer> PIXEL_PLACER_CONTAINER = BLOCKS.register("pixel_placer_container", PixelPlacerContainer::new);
     public static final RegistryObject<BlockEntityType<PixelPlacerEntity>> PIXEL_PLACER_ENTITY = BLOCK_ENTITIES.register("pixel_placer_container",

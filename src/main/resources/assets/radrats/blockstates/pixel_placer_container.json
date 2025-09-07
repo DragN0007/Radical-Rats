@@ -1,0 +1,7 @@
+{
+  "variants": {
+    "": {
+      "model": "radrats:block/pixel_placer_container"
+    }
+  }
+}

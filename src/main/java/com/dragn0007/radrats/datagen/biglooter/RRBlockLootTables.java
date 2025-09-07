@@ -16,7 +16,9 @@ public class RRBlockLootTables extends BlockLootSubProvider {
     @Override
     protected void generate() {
 
-
+        dropSelf(RRBlocks.WIRE_WALL.get());
+        dropSelf(RRBlocks.WIRE_DOOR.get());
+        dropSelf(RRBlocks.WATER_BOTTLE.get());
 
     }
 

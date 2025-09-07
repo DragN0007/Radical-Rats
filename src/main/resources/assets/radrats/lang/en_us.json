@@ -3,6 +3,10 @@
   "item.radrats.rat_spawn_egg": "Rat Spawn Egg",
   "entity.radrats.rat": "Rat",
 
+  "block.radrats.wire_wall": "Wire Wall",
+  "block.radrats.wire_door": "Wire Door",
+  "block.radrats.water_bottle": "Water Bottle",
+
   "item.radrats.black_sweater": "Black Sweater",
   "item.radrats.blue_sweater": "Blue Sweater",
   "item.radrats.brown_sweater": "Brown Sweater",
