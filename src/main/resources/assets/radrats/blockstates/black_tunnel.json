@@ -1,0 +1,19 @@
+{
+  "variants": {
+    "facing=east": {
+      "model": "radrats:block/black_tunnel",
+      "y": 90
+    },
+    "facing=north": {
+      "model": "radrats:block/black_tunnel"
+    },
+    "facing=south": {
+      "model": "radrats:block/black_tunnel",
+      "y": 180
+    },
+    "facing=west": {
+      "model": "radrats:block/black_tunnel",
+      "y": 270
+    }
+  }
+}

@@ -1,0 +1,6 @@
+{
+	"parent": "radrats:block/parent/tunnel",
+	"textures": {
+		"texture": "radrats:block/yellow_tunnel"
+	}
+}

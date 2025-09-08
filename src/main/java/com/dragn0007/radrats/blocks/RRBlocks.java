@@ -1,10 +1,7 @@
 package com.dragn0007.radrats.blocks;
 
 import com.dragn0007.radrats.RadicalRats;
-import com.dragn0007.radrats.blocks.custom.StraightHammock;
-import com.dragn0007.radrats.blocks.custom.WaterBottle;
-import com.dragn0007.radrats.blocks.custom.WireDoor;
-import com.dragn0007.radrats.blocks.custom.WireWall;
+import com.dragn0007.radrats.blocks.custom.*;
 import com.dragn0007.radrats.blocks.pixel_placement.util.PixelPlacer;
 import com.dragn0007.radrats.blocks.pixel_placement.util.PixelPlacerContainer;
 import com.dragn0007.radrats.blocks.pixel_placement.util.PixelPlacerEntity;
@@ -50,6 +47,23 @@ public class RRBlocks {
     public static final RegistryObject<StraightHammock> RED_HAMMOCK = registerBlock("red_hammock", StraightHammock::new);
     public static final RegistryObject<StraightHammock> WHITE_HAMMOCK = registerBlock("white_hammock", StraightHammock::new);
     public static final RegistryObject<StraightHammock> YELLOW_HAMMOCK = registerBlock("yellow_hammock", StraightHammock::new);
+
+    public static final RegistryObject<Tunnel> BLACK_TUNNEL = registerBlock("black_tunnel", Tunnel::new);
+    public static final RegistryObject<Tunnel> BLUE_TUNNEL = registerBlock("blue_tunnel", Tunnel::new);
+    public static final RegistryObject<Tunnel> BROWN_TUNNEL = registerBlock("brown_tunnel", Tunnel::new);
+    public static final RegistryObject<Tunnel> CYAN_TUNNEL = registerBlock("cyan_tunnel", Tunnel::new);
+    public static final RegistryObject<Tunnel> GREEN_TUNNEL = registerBlock("green_tunnel", Tunnel::new);
+    public static final RegistryObject<Tunnel> GREY_TUNNEL = registerBlock("grey_tunnel", Tunnel::new);
+    public static final RegistryObject<Tunnel> LIGHT_BLUE_TUNNEL = registerBlock("light_blue_tunnel", Tunnel::new);
+    public static final RegistryObject<Tunnel> LIGHT_GREY_TUNNEL = registerBlock("light_grey_tunnel", Tunnel::new);
+    public static final RegistryObject<Tunnel> LIME_TUNNEL = registerBlock("lime_tunnel", Tunnel::new);
+    public static final RegistryObject<Tunnel> MAGENTA_TUNNEL = registerBlock("magenta_tunnel", Tunnel::new);
+    public static final RegistryObject<Tunnel> ORANGE_TUNNEL = registerBlock("orange_tunnel", Tunnel::new);
+    public static final RegistryObject<Tunnel> PINK_TUNNEL = registerBlock("pink_tunnel", Tunnel::new);
+    public static final RegistryObject<Tunnel> PURPLE_TUNNEL = registerBlock("purple_tunnel", Tunnel::new);
+    public static final RegistryObject<Tunnel> RED_TUNNEL = registerBlock("red_tunnel", Tunnel::new);
+    public static final RegistryObject<Tunnel> WHITE_TUNNEL = registerBlock("white_tunnel", Tunnel::new);
+    public static final RegistryObject<Tunnel> YELLOW_TUNNEL = registerBlock("yellow_tunnel", Tunnel::new);
 
     public static final RegistryObject<PixelPlacerContainer> PIXEL_PLACER_CONTAINER = BLOCKS.register("pixel_placer_container", PixelPlacerContainer::new);
     public static final RegistryObject<BlockEntityType<PixelPlacerEntity>> PIXEL_PLACER_ENTITY = BLOCK_ENTITIES.register("pixel_placer_container",

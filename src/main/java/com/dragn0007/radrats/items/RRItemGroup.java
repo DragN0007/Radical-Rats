@@ -39,6 +39,21 @@ public class RRItemGroup {
                             output.accept(RRBlocks.RED_HAMMOCK.get());
                             output.accept(RRBlocks.WHITE_HAMMOCK.get());
                             output.accept(RRBlocks.YELLOW_HAMMOCK.get());
+                            output.accept(RRBlocks.BLACK_TUNNEL.get());
+                            output.accept(RRBlocks.BLUE_TUNNEL.get());
+                            output.accept(RRBlocks.BROWN_TUNNEL.get());
+                            output.accept(RRBlocks.CYAN_TUNNEL.get());
+                            output.accept(RRBlocks.GREEN_TUNNEL.get());
+                            output.accept(RRBlocks.LIGHT_BLUE_TUNNEL.get());
+                            output.accept(RRBlocks.LIGHT_GREY_TUNNEL.get());
+                            output.accept(RRBlocks.LIME_TUNNEL.get());
+                            output.accept(RRBlocks.MAGENTA_TUNNEL.get());
+                            output.accept(RRBlocks.ORANGE_TUNNEL.get());
+                            output.accept(RRBlocks.PINK_TUNNEL.get());
+                            output.accept(RRBlocks.PURPLE_TUNNEL.get());
+                            output.accept(RRBlocks.RED_TUNNEL.get());
+                            output.accept(RRBlocks.WHITE_TUNNEL.get());
+                            output.accept(RRBlocks.YELLOW_TUNNEL.get());
 
                             output.accept(RRItems.BLACK_SWEATER.get());
                             output.accept(RRItems.BLUE_SWEATER.get());

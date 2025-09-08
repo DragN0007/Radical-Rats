@@ -1,0 +1,19 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "misc",
+  "key": {
+    "A": {
+      "item": "minecraft:lime_wool"
+    },
+    "B": {
+      "item": "minecraft:string"
+    }
+  },
+  "pattern": [
+    "BAB"
+  ],
+  "result": {
+    "item": "radrats:lime_hammock"
+  },
+  "show_notification": true
+}

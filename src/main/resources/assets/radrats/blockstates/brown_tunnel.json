@@ -1,0 +1,19 @@
+{
+  "variants": {
+    "facing=east": {
+      "model": "radrats:block/brown_tunnel",
+      "y": 90
+    },
+    "facing=north": {
+      "model": "radrats:block/brown_tunnel"
+    },
+    "facing=south": {
+      "model": "radrats:block/brown_tunnel",
+      "y": 180
+    },
+    "facing=west": {
+      "model": "radrats:block/brown_tunnel",
+      "y": 270
+    }
+  }
+}

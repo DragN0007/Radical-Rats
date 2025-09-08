@@ -24,35 +24,27 @@ public class Tunnel extends DecorRotator implements SimpleWaterloggedBlock {
     }
 
     public static final VoxelShape NORTH = Stream.of(
-            Block.box(0, 0, 0, 2, 12, 16),
-            Block.box(14, 0, 0, 16, 12, 16),
-            Block.box(13, 12, 0, 15, 15, 16),
-            Block.box(3, 14, 0, 13, 16, 16),
-            Block.box(1, 12, 0, 3, 15, 16)
+            Block.box(1, 0, 0, 3, 10, 16),
+            Block.box(13, 0, 0, 15, 10, 16),
+            Block.box(2, 10, 0, 14, 12, 16)
     ).reduce((v1, v2) -> Shapes.join(v1, v2,BooleanOp.OR)).get();
 
     public static final VoxelShape EAST = Stream.of(
-            Block.box(0, 0, 0, 16, 12, 2),
-            Block.box(0, 0, 14, 16, 12, 16),
-            Block.box(0, 12, 13, 16, 15, 15),
-            Block.box(0, 14, 3, 16, 16, 13),
-            Block.box(0, 12, 1, 16, 15, 3)
+            Block.box(0, 0, 1, 16, 10, 3),
+            Block.box(0, 0, 13, 16, 10, 15),
+            Block.box(0, 10, 2, 16, 12, 14)
     ).reduce((v1, v2) -> Shapes.join(v1, v2,BooleanOp.OR)).get();
 
     public static final VoxelShape SOUTH = Stream.of(
-            Block.box(0, 0, 0, 2, 12, 16),
-            Block.box(14, 0, 0, 16, 12, 16),
-            Block.box(13, 12, 0, 15, 15, 16),
-            Block.box(3, 14, 0, 13, 16, 16),
-            Block.box(1, 12, 0, 3, 15, 16)
+            Block.box(1, 0, 0, 3, 10, 16),
+            Block.box(13, 0, 0, 15, 10, 16),
+            Block.box(2, 10, 0, 14, 12, 16)
     ).reduce((v1, v2) -> Shapes.join(v1, v2,BooleanOp.OR)).get();
 
     public static final VoxelShape WEST = Stream.of(
-            Block.box(0, 0, 0, 16, 12, 2),
-            Block.box(0, 0, 14, 16, 12, 16),
-            Block.box(0, 12, 13, 16, 15, 15),
-            Block.box(0, 14, 3, 16, 16, 13),
-            Block.box(0, 12, 1, 16, 15, 3)
+            Block.box(0, 0, 1, 16, 10, 3),
+            Block.box(0, 0, 13, 16, 10, 15),
+            Block.box(0, 10, 2, 16, 12, 14)
     ).reduce((v1, v2) -> Shapes.join(v1, v2,BooleanOp.OR)).get();
 
     @Override

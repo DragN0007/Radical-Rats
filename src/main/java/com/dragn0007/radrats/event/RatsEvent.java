@@ -7,8 +7,12 @@ import com.dragn0007.radrats.entities.rat.Rat;
 import com.dragn0007.radrats.entities.rat.RatRender;
 import com.dragn0007.radrats.entities.util.EntityTypes;
 import net.minecraft.client.renderer.entity.EntityRenderers;
+import net.minecraft.world.entity.SpawnPlacements;
+import net.minecraft.world.entity.animal.Animal;
+import net.minecraft.world.level.levelgen.Heightmap;
 import net.minecraftforge.client.event.EntityRenderersEvent;
 import net.minecraftforge.event.entity.EntityAttributeCreationEvent;
+import net.minecraftforge.event.entity.SpawnPlacementRegisterEvent;
 import net.minecraftforge.eventbus.api.SubscribeEvent;
 import net.minecraftforge.fml.common.Mod;
 import net.minecraftforge.fml.event.lifecycle.FMLClientSetupEvent;
@@ -30,5 +34,10 @@ import net.minecraftforge.fml.event.lifecycle.FMLClientSetupEvent;
     @SubscribeEvent
     public static void entityRendererEvent(EntityRenderersEvent.RegisterRenderers event) {
         event.registerBlockEntityRenderer(RRBlocks.PIXEL_PLACER_ENTITY.get(), PixelPlacerEntityRenderer::new);
+    }
+
+    @SubscribeEvent
+    public static void spawnPlacementRegisterEvent(SpawnPlacementRegisterEvent event) {
+        event.register(EntityTypes.RAT_ENTITY.get(), SpawnPlacements.Type.ON_GROUND, Heightmap.Types.MOTION_BLOCKING_NO_LEAVES, Animal::checkAnimalSpawnRules, SpawnPlacementRegisterEvent.Operation.AND);
     }
 }
